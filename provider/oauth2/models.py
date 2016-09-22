@@ -106,11 +106,12 @@ class Grant(models.Model):
 
     class Meta:
         app_label = "oauth2"
+        index_together = ["client", "code", "expires"]
 
     user = models.ForeignKey(AUTH_USER_MODEL, related_name='dop_grant')
     client = models.ForeignKey(Client)
     code = models.CharField(max_length=255, default=long_token)
-    expires = models.DateTimeField(default=get_code_expiry)
+    expires = models.DateTimeField(default=get_code_expiry, db_index=True)
     redirect_uri = models.CharField(max_length=255, blank=True)
     scope = models.IntegerField(default=0)
 
@@ -145,7 +146,7 @@ class AccessToken(models.Model):
     user = models.ForeignKey(AUTH_USER_MODEL, related_name='dop_access_token')
     token = models.CharField(max_length=255, default=long_token, db_index=True)
     client = models.ForeignKey(Client)
-    expires = models.DateTimeField()
+    expires = models.DateTimeField(db_index=True)
     scope = models.IntegerField(default=constants.SCOPES[0][0],
                                 choices=constants.SCOPES)
 
