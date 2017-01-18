@@ -1,0 +1,16 @@
+---
+machine:
+  python:
+    version: 2.7.10
+
+dependencies:
+  override:
+    - sudo apt-get install lcov
+    - pip install -U pip wheel codecov
+    - make requirements
+
+test:
+  override:
+    - make test
+  post:
+    - codecov
