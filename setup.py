@@ -8,7 +8,7 @@ setup(
     name='django-oauth2-provider',
     version=provider.__version__,
     description='edX fork of django-oauth2-provider',
-    long_description=open('README.rst').read(),
+    long_description=open('README.mkd').read(),
     author='sprintly',
     author_email='ops@sprint.ly',
     url='https://github.com/sprintly/django-oauth2-provider',
