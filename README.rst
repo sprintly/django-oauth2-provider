@@ -1,3 +1,7 @@
+[![CircleCI](https://circleci.com/gh/sprintly/django-oauth2-provider.svg?style=svg&circle-token=aafa4835cec6ebf699408e2c76e4d844e13658ea)](https://circleci.com/gh/sprintly/django-oauth2-provider)
+[![codecov](https://codecov.io/gh/sprintly/django-oauth2-provider/branch/master/graph/badge.svg)](https://codecov.io/gh/sprintly/django-oauth2-provider)
+[![Dependency Status](https://gemnasium.com/badges/github.com/sprintly/django-oauth2-provider.svg)](https://gemnasium.com/github.com/sprintly/django-oauth2-provider)
+
 django-oauth2-provider
 ======================
 
