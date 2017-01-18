@@ -8,8 +8,13 @@ from django.db.models.fields import (DateTimeField, DateField,
                                      TimeField,
                                      FieldDoesNotExist)
 from django.utils import dateparse, timezone
+from django.utils.translation import ugettext_lazy as _
 
 from provider.constants import EXPIRE_DELTA, EXPIRE_DELTA_PUBLIC, EXPIRE_CODE_DELTA
+
+
+def unicode_gettext(string):
+    return unicode(_(string))
 
 
 def now():

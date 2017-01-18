@@ -55,8 +55,14 @@ class RequestParamsClientBackend(object):
     def authenticate(self, request=None):
         if request is None:
             return None
+        elif request.method == 'POST':
+            data = request.POST
+        elif request.method == 'GET':
+            data = request.GET
+        else:
+            return None
 
-        form = ClientAuthForm(request.REQUEST)
+        form = ClientAuthForm(data)
 
         if form.is_valid():
             return form.cleaned_data.get('client')
@@ -76,8 +82,14 @@ class PublicPasswordBackend(object):
     def authenticate(self, request=None):
         if request is None:
             return None
+        elif request.method == 'POST':
+            data = request.POST
+        elif request.method == 'GET':
+            data = request.GET
+        else:
+            return None
 
-        form = PublicPasswordGrantForm(request.REQUEST)
+        form = PublicPasswordGrantForm(data)
 
         if form.is_valid():
             return form.cleaned_data.get('client')

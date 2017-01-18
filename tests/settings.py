@@ -2,7 +2,6 @@
 import os
 
 DEBUG = True
-TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     ('Tester', 'test@example.com'),
@@ -59,6 +58,7 @@ INSTALLED_APPS = (
     'provider',
     'provider.oauth2',
     'django_nose',
+    'test',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -68,3 +68,24 @@ MIDDLEWARE_CLASSES = (
 )
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            'templates/'
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]

@@ -6,11 +6,11 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect, QueryDict
 from django.utils.http import urlencode
-from django.utils.translation import ugettext as _
 from django.views.generic.base import TemplateView
 
 from oauth2.models import Client
 from provider import constants, scope
+from provider.utils import unicode_gettext as _
 
 
 class OAuthError(Exception):

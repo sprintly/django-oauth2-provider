@@ -5,13 +5,13 @@ from setuptools import setup, find_packages
 import provider
 
 setup(
-    name='edx-django-oauth2-provider',
+    name='django-oauth2-provider',
     version=provider.__version__,
     description='edX fork of django-oauth2-provider',
     long_description=open('README.rst').read(),
-    author='edX',
-    author_email='oscm@edx.org',
-    url='https://github.com/edx/django-oauth2-provider',
+    author='sprintly',
+    author_email='ops@sprint.ly',
+    url='https://github.com/sprintly/django-oauth2-provider',
     packages=find_packages(exclude=('tests*',)),
     classifiers=[
         'Environment :: Web Environment',

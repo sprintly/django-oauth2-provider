@@ -1,8 +1,8 @@
 import datetime
 import json
 import urlparse
-
 import ddt
+
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
@@ -672,10 +672,11 @@ class AuthBackendTest(BaseOAuth2TestCase):
                          2, "Didn't return the right client.")
 
     def test_request_params_client_backend(self):
-        request = type('Request', (object,), {'REQUEST': {}})()
+        request = type('Request', (object,), {'POST': {}})()
 
-        request.REQUEST['client_id'] = self.get_client().client_id
-        request.REQUEST['client_secret'] = self.get_client().client_secret
+        request.POST['client_id'] = self.get_client().client_id
+        request.POST['client_secret'] = self.get_client().client_secret
+        request.method = 'POST'
 
         self.assertEqual(RequestParamsClientBackend().authenticate(request).id,
                          2, "Didn't return the right client.'")
